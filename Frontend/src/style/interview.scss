@@ -1,0 +1,983 @@
+// @use "sass:color";
+
+// /* =========================
+//    GLOBAL WRAPPER
+// ========================= */
+// .interview-container {
+//   min-height: 100vh;
+//   width: 100%;
+//   background: #0f172a; // dark theme
+//   color: #e2e8f0;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 20px;
+// }
+
+// /* =========================
+//    HEADER
+// ========================= */
+// .interview-header {
+//   width: 100%;
+//   max-width: 900px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 15px 20px;
+//   background: #1e293b;
+//   border-radius: 12px;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+//   h1 {
+//     font-size: 20px;
+//     font-weight: 600;
+//   }
+
+//   .timer {
+//     font-size: 16px;
+//     font-weight: 500;
+//     color: #38bdf8;
+//   }
+// }
+
+// /* =========================
+//    QUESTION CARD
+// ========================= */
+// .question-card {
+//   margin-top: 20px;
+//   width: 100%;
+//   max-width: 900px;
+//   background: #1e293b;
+//   padding: 25px;
+//   border-radius: 12px;
+//   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+
+//   h2 {
+//     font-size: 18px;
+//     margin-bottom: 15px;
+//   }
+
+//   p {
+//     font-size: 15px;
+//     line-height: 1.6;
+//     color: #cbd5e1;
+//   }
+// }
+
+// /* =========================
+//    OPTIONS
+// ========================= */
+// .options {
+//   margin-top: 20px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 12px;
+
+//   button {
+//     padding: 12px 15px;
+//     border: none;
+//     border-radius: 8px;
+//     background: #334155;
+//     color: #e2e8f0;
+//     cursor: pointer;
+//     transition: all 0.3s ease;
+
+//     &:hover {
+//       background: color.adjust(#334155, $lightness: 8%);
+//     }
+
+//     &.active {
+//       background: #38bdf8;
+//       color: #0f172a;
+//       font-weight: 600;
+//     }
+//   }
+// }
+
+// /* =========================
+//    ACTION BUTTONS
+// ========================= */
+// .actions {
+//   margin-top: 25px;
+//   display: flex;
+//   justify-content: space-between;
+
+//   button {
+//     padding: 10px 18px;
+//     border-radius: 8px;
+//     border: none;
+//     cursor: pointer;
+//     font-weight: 500;
+//     transition: 0.3s;
+
+//     &.prev {
+//       background: #475569;
+//       color: #fff;
+
+//       &:hover {
+//         background: color.adjust(#475569, $lightness: 10%);
+//       }
+//     }
+
+//     &.next {
+//       background: #38bdf8;
+//       color: #0f172a;
+
+//       &:hover {
+//         background: color.adjust(#38bdf8, $lightness: 10%);
+//       }
+//     }
+//   }
+// }
+
+// /* =========================
+//    RESULT SECTION
+// ========================= */
+// .result-box {
+//   margin-top: 30px;
+//   width: 100%;
+//   max-width: 900px;
+//   background: #1e293b;
+//   padding: 20px;
+//   border-radius: 12px;
+
+//   h3 {
+//     margin-bottom: 10px;
+//     color: #38bdf8;
+//   }
+
+//   p {
+//     font-size: 14px;
+//     color: #cbd5e1;
+//     line-height: 1.5;
+//   }
+// }
+
+// /* =========================
+//    RESPONSIVE
+// ========================= */
+// @media (max-width: 768px) {
+//   .interview-header {
+//     flex-direction: column;
+//     gap: 10px;
+//     text-align: center;
+//   }
+
+//   .actions {
+//     flex-direction: column;
+//     gap: 10px;
+//   }
+// }
+
+/* src/style/interview.scss */
+
+
+
+// .interview-page {
+//   padding: 2rem;
+//   font-family: sans-serif;
+//   background-color: #fafafa;
+//   min-height: 100vh;
+
+//   .interview-layout {
+//     display: flex;
+//     gap: 2rem;
+//     max-width: 1200px;
+//     margin: 0 auto;
+//   }
+
+//   /* Sidebars and Dividers */
+//   .interview-nav, .interview-sidebar {
+//     flex: 1;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1rem;
+//     min-width: 200px;
+//   }
+
+//   .interview-divider {
+//     width: 1px;
+//     background-color: #e0e0e0;
+//   }
+
+//   .interview-content {
+//     flex: 3;
+//   }
+
+//   /* Nav Items */
+//   .interview-nav__item {
+//     padding: 0.75rem 1rem;
+//     background: none;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     text-align: left;
+//     transition: all 0.2s ease;
+
+//     &--active {
+//       background-color: #007bff;
+//       color: white;
+//       border-color: #0056b3;
+//     }
+//   }
+
+//   /* Accordion Question Cards */
+//   .q-card {
+//     background: white;
+//     border: 1px solid #e0e0e0;
+//     border-radius: 6px;
+//     margin-bottom: 1rem;
+//     overflow: hidden;
+
+//     &__header {
+//       display: flex;
+//       align-items: center;
+//       gap: 1rem;
+//       padding: 1rem;
+//       background-color: #f8f9fa;
+//       cursor: pointer;
+//       user-select: none;
+//     }
+
+//     &__index {
+//       font-weight: bold;
+//       color: #007bff;
+//     }
+
+//     &__question {
+//       margin: 0;
+//       font-weight: 500;
+//     }
+
+//     &__body {
+//       padding: 1rem;
+//       border-top: 1px solid #e0e0e0;
+//       background-color: #fff;
+//     }
+
+//     &__section {
+//       margin-bottom: 1rem;
+//       h4 { margin: 0 0 0.25rem 0; color: #555; }
+//       p { margin: 0; color: #333; }
+//     }
+//   }
+
+//   /* Roadmap View */
+//   .roadmap-day {
+//     background: white;
+//     padding: 1rem;
+//     border-radius: 6px;
+//     border-left: 4px solid #28a745;
+//     margin-bottom: 1rem;
+//     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+//   }
+
+//   /* Score Ring */
+//   .match-score__ring {
+//     width: 80px;
+//     height: 80px;
+//     border-radius: 50%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-weight: bold;
+//     font-size: 1.2rem;
+//     border: 4px solid #ccc;
+
+//     &.score--high { border-color: #28a745; color: #28a745; }
+//     &.score--mid  { border-color: #ffc107; color: #ffc107; }
+//     &.score--low  { border-color: #dc3545; color: #dc3545; }
+//   }
+
+//   /* Skill Gaps */
+//   .skill-tag {
+//     display: inline-block;
+//     padding: 0.25rem 0.5rem;
+//     border-radius: 4px;
+//     font-size: 0.85rem;
+//     margin-right: 0.5rem;
+//     font-weight: 500;
+
+//     &--high { background-color: #fde8e8; color: #e02424; }
+//     &--medium { background-color: #fef3c7; color: #d97706; }
+//   }
+// }
+
+
+@use "sass:color";
+
+// ── Theme Variables ──────────────────────────────────────────────────────────
+// $bg-page:        #0d1117;
+// $bg-card:        #161b22;
+// $bg-panel:       #1c2230;
+// $bg-input:       #1e2535;
+// $border-color:   #2a3348;
+// $text-primary:   #dbe1e6;
+// $text-muted:     #d7e0ea;
+// $accent:         #ff2d78;
+// $accent-alt:     #ff6b9d;
+// $font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// // Status colors derived or chosen to fit dark theme aesthetics
+// $success:        #2ea44f;
+// $warning:        #dbab09;
+// $error:          #f85149;
+
+// // ── Layout & Page Shell ──────────────────────────────────────────────────────
+// .interview-page {
+//   width: 100%;
+//   min-height: 100vh;
+//   background-color: $bg-page;
+//   color: $text-primary;
+//   font-family: $font-stack;
+//   padding: 3rem 1.5rem;
+
+//   .interview-layout {
+//     display: flex;
+//     gap: 2rem;
+//     max-width: 1200px;
+//     margin: 0 auto;
+//     background-color: $bg-card;
+//     border: 1px solid $border-color;
+//     border-radius: 1rem;
+//     padding: 2rem;
+//   }
+
+//   // Layout Sub-Containers
+//   .interview-nav, 
+//   .interview-sidebar {
+//     flex: 1;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1.25rem;
+//     min-width: 220px;
+    
+//     h3 {
+//       font-size: 1rem;
+//       font-weight: 600;
+//       color: $text-primary;
+//       margin: 0 0 0.25rem 0;
+//       text-transform: uppercase;
+//       letter-spacing: 0.05em;
+//     }
+//   }
+
+//   .interview-content {
+//     flex: 3;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 1.5rem;
+
+//     h2 {
+//       font-size: 1.5rem;
+//       font-weight: 700;
+//       margin: 0 0 0.5rem 0;
+//       color: $text-primary;
+//     }
+//   }
+
+//   // Dividers
+//   .interview-divider {
+//     width: 1px;
+//     background-color: $border-color;
+//     flex-shrink: 0;
+//   }
+
+//   .sidebar-divider {
+//     height: 1px;
+//     background-color: $border-color;
+//     width: 100%;
+//     margin: 0.5rem 0;
+//   }
+
+//   // ── Navigation Items ────────────────────────────────────────────────────────
+//   .interview-nav__item {
+//     padding: 0.75rem 1rem;
+//     background-color: $bg-input;
+//     border: 1px solid $border-color;
+//     border-radius: 0.5rem;
+//     color: $text-muted;
+//     font-family: $font-stack;
+//     font-size: 0.875rem;
+//     font-weight: 500;
+//     cursor: pointer;
+//     text-align: left;
+//     transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+
+//     &:hover {
+//       border-color: $accent-alt;
+//       color: $text-primary;
+//     }
+
+//     &--active {
+//       background-color: rgba($accent, 0.1);
+//       color: $accent-alt;
+//       border-color: $accent;
+//     }
+//   }
+
+//   // Primary Action Button Override
+//   .primary-button {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     gap: 0.5rem;
+//     padding: 0.75rem 1.5rem;
+//     background: linear-gradient(135deg, $accent 0%, color.adjust($accent, $lightness: -10%) 100%);
+//     color: #f6efef;
+//     font-size: 0.9rem;
+//     font-weight: 600;
+//     border: none;
+//     border-radius: 0.5rem;
+//     cursor: pointer;
+//     transition: opacity 0.2s, transform 0.1s;
+//     margin-top: auto; // Pushes it down nicely if needed
+
+//     &:hover {
+//       opacity: 0.9;
+//     }
+
+//     &:active {
+//       transform: scale(0.98);
+//     }
+//   }
+
+//   // ── Accordion Question Cards ───────────────────────────────────────────────
+//   .q-card {
+//     background-color: $bg-panel;
+//     border: 1px solid $border-color;
+//     border-radius: 0.75rem;
+//     margin-bottom: 1rem;
+//     overflow: hidden;
+//     transition: border-color 0.2s;
+
+//     &:hover {
+//       border-color: color.adjust($border-color, $lightness: 10%);
+//     }
+
+//     &__header {
+//       display: flex;
+//       align-items: center;
+//       gap: 1rem;
+//       padding: 1.25rem;
+//       background-color: rgba($bg-input, 0.4);
+//       cursor: pointer;
+//       user-select: none;
+//     }
+
+//     &__index {
+//       font-weight: 700;
+//       color: $accent;
+//       font-size: 0.9rem;
+//       background-color: rgba($accent, 0.1);
+//       padding: 0.2rem 0.5rem;
+//       border-radius: 0.35rem;
+//     }
+
+//     &__question {
+//       margin: 0;
+//       font-weight: 500;
+//       font-size: 0.95rem;
+//       color: $text-primary;
+//     }
+
+//     &__body {
+//       padding: 1.25rem;
+//       border-top: 1px solid $border-color;
+//       background-color: rgba($bg-page, 0.3);
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1.25rem;
+//     }
+
+//     &__section {
+//       h4 {
+//         margin: 0 0 0.4rem 0;
+//         font-size: 0.8rem;
+//         text-transform: uppercase;
+//         letter-spacing: 0.05em;
+//         color: $text-muted;
+//       }
+//       p {
+//         margin: 0;
+//         font-size: 0.9rem;
+//         color: $text-primary;
+//         line-height: 1.6;
+//       }
+//     }
+//   }
+
+//   // ── Roadmap Layout ──────────────────────────────────────────────────────────
+//   .roadmap-day {
+//     background-color: $bg-panel;
+//     border: 1px solid $border-color;
+//     padding: 1.25rem;
+//     border-radius: 0.75rem;
+//     border-left: 4px solid $accent;
+//     margin-bottom: 1rem;
+
+//     h3 {
+//       margin: 0 0 0.25rem 0;
+//       font-size: 1.1rem;
+//       color: $accent-alt;
+//     }
+
+//     h4 {
+//       margin: 0 0 0.75rem 0;
+//       font-size: 0.95rem;
+//       font-weight: 500;
+//       color: $text-primary;
+//     }
+
+//     ul {
+//       margin: 0;
+//       padding-left: 1.25rem;
+//       display: flex;
+//       flex-direction: column;
+//       gap: 0.4rem;
+
+//       li {
+//         font-size: 0.875rem;
+//         color: $text-muted;
+//         line-height: 1.4;
+        
+//         &::marker {
+//           color: $accent;
+//         }
+//       }
+//     }
+//   }
+
+//   // ── Ring Score Engine ───────────────────────────────────────────────────────
+//   .match-score {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 0.75rem;
+//     text-align: center;
+
+//     &__ring {
+//       width: 100px;
+//       height: 100px;
+//       border-radius: 50%;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       font-weight: 700;
+//       font-size: 1.35rem;
+//       background-color: $bg-input;
+//       border: 4px solid $border-color;
+//       box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+//       transition: color 0.3s, border-color 0.3s;
+
+//       &.score--high { 
+//         border-color: $success; 
+//         color: $success;
+//         box-shadow: 0 0 15px rgba($success, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+//       }
+//       &.score--mid  { 
+//         border-color: $warning; 
+//         color: $warning;
+//         box-shadow: 0 0 15px rgba($warning, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+//       }
+//       &.score--low  { 
+//         border-color: $error; 
+//         color: $error;
+//         box-shadow: 0 0 15px rgba($error, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+//       }
+//     }
+//   }
+
+//   // ── Skill Tag Indicators ────────────────────────────────────────────────────
+//   .skill-gaps {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 0.75rem;
+//   }
+
+//   .skill-tag {
+//     display: block;
+//     padding: 0.5rem 0.75rem;
+//     border-radius: 0.5rem;
+//     font-size: 0.85rem;
+//     font-weight: 600;
+//     text-align: center;
+//     border: 1px solid transparent;
+
+//     &--high { 
+//       background-color: rgba($error, 0.1); 
+//       color: color.adjust($error, $lightness: 10%); 
+//       border-color: rgba($error, 0.25);
+//     }
+//     &--medium { 
+//       background-color: rgba($warning, 0.1); 
+//       color: color.adjust($warning, $lightness: 10%); 
+//       border-color: rgba($warning, 0.25);
+//     }
+//     &--low {
+//       background-color: rgba($success, 0.1);
+//       color: color.adjust($success, $lightness: 10%);
+//       border-color: rgba($success, 0.25);
+//     }
+//   }
+
+//   // ── Fallback Loading Layout ─────────────────────────────────────────────────
+//   &.loading-screen {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: $bg-page;
+//     min-height: 100vh;
+    
+//     h1 {
+//       font-size: 1.5rem;
+//       color: $text-muted;
+//       animation: pulse 1.5s infinite ease-in-out;
+//     }
+//   }
+// }
+
+// @keyframes pulse {
+//   0%, 100% { opacity: 0.6; }
+//   50% { opacity: 1; }
+// }
+
+$bg-page:        #0d1117;
+$bg-card:        #161b22;
+
+$bg-page:        #0d1117;
+$bg-card:        #161b22;
+$bg-panel:       #1c2230;
+$bg-input:       #1e2535;
+$border-color:   #2a3348;
+$text-primary:   #dbe1e6;
+$text-muted:     #d7e0ea;
+$accent:         #ff2d78;
+$accent-alt:     #ff6b9d;
+$font-stack:     system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+// Status colors derived or chosen to fit dark theme aesthetics
+$success:        #2ea44f;
+$warning:        #dbab09;
+$error:          #f85149;
+
+// ── Layout & Page Shell ──────────────────────────────────────────────────────
+.interview-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: $bg-page;
+  color: $text-primary;
+  font-family: $font-stack;
+  padding: 3rem 1.5rem;
+
+  .interview-layout {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: $bg-card;
+    border: 1px solid $border-color;
+    border-radius: 1rem;
+    padding: 2rem;
+  }
+
+  // Layout Sub-Containers
+  .interview-nav, 
+  .interview-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-width: 220px;
+    background-color: transparent; // Ensures no hidden panel background blocks
+    
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: $text-primary;
+      margin: 0 0 0.25rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  .interview-content {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background-color: transparent; // 💡 REMOVES THE WHITENESS: Forces center content space to inherit the clean dark layout card style
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      color: $text-primary;
+    }
+  }
+
+  // Dividers
+  .interview-divider {
+    width: 1px;
+    background-color: $border-color;
+    flex-shrink: 0;
+  }
+
+  .sidebar-divider {
+    height: 1px;
+    background-color: $border-color;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  // ── Navigation Items ────────────────────────────────────────────────────────
+  .interview-nav__item {
+    padding: 0.75rem 1rem;
+    background-color: $bg-input;
+    border: 1px solid $border-color;
+    border-radius: 0.5rem;
+    color: $text-muted;
+    font-family: $font-stack;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+
+    &:hover {
+      border-color: $accent-alt;
+      color: $text-primary;
+    }
+
+    &--active {
+      background-color: rgba($accent, 0.1);
+      color: $accent-alt;
+      border-color: $accent;
+    }
+  }
+
+  // Primary Action Button Override
+  .primary-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, $accent 0%, color.adjust($accent, $lightness: -10%) 100%);
+    color: #f6efef;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    margin-top: auto; 
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+  }
+
+  // ── Accordion Question Cards ───────────────────────────────────────────────
+  .q-card {
+    background-color: $bg-panel;
+    border: 1px solid $border-color;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: color.adjust($border-color, $lightness: 10%);
+    }
+
+    &__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background-color: rgba($bg-input, 0.4);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    &__index {
+      font-weight: 700;
+      color: $accent;
+      font-size: 0.9rem;
+      background-color: rgba($accent, 0.1);
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.35rem;
+    }
+
+    &__question {
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: $text-primary;
+    }
+
+    &__body {
+      padding: 1.25rem;
+      border-top: 1px solid $border-color;
+      background-color: $bg-input; // 💡 FIXED: Changes the expanded accordion inner container to a matching dark color palette instead of light options
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    &__section {
+      h4 {
+        margin: 0 0 0.4rem 0;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $text-muted;
+      }
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: $text-primary;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // ── Roadmap Layout ──────────────────────────────────────────────────────────
+  .roadmap-day {
+    background-color: $bg-panel;
+    border: 1px solid $border-color;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border-left: 4px solid $accent;
+    margin-bottom: 1rem;
+
+    h3 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.1rem;
+      color: $accent-alt;
+    }
+
+    h4 {
+      margin: 0 0 0.75rem 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: $text-primary;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      li {
+        font-size: 0.875rem;
+        color: $text-muted;
+        line-height: 1.4;
+        
+        &::marker {
+          color: $accent;
+        }
+      }
+    }
+  }
+
+  // ── Ring Score Engine ───────────────────────────────────────────────────────
+  .match-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+
+    &__ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.35rem;
+      background-color: $bg-input;
+      border: 4px solid $border-color;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: color 0.3s, border-color 0.3s;
+
+      &.score--high { 
+        border-color: $success; 
+        color: $success;
+        box-shadow: 0 0 15px rgba($success, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      &.score--mid  { 
+        border-color: $warning; 
+        color: $warning;
+        box-shadow: 0 0 15px rgba($warning, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+      &.score--low  { 
+        border-color: $error; 
+        color: $error;
+        box-shadow: 0 0 15px rgba($error, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  // ── Skill Tag Indicators ────────────────────────────────────────────────────
+  .skill-gaps {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .skill-tag {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+
+    &--high { 
+      background-color: rgba($error, 0.1); 
+      color: color.adjust($error, $lightness: 10%); 
+      border-color: rgba($error, 0.25);
+    }
+    &--medium { 
+      background-color: rgba($warning, 0.1); 
+      color: color.adjust($warning, $lightness: 10%); 
+      border-color: rgba($warning, 0.25);
+    }
+    &--low {
+      background-color: rgba($success, 0.1);
+      color: color.adjust($success, $lightness: 10%);
+      border-color: rgba($success, 0.25);
+    }
+  }
+
+  // ── Fallback Loading Layout ─────────────────────────────────────────────────
+  &.loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $bg-page;
+    min-height: 100vh;
+    
+    h1 {
+      font-size: 1.5rem;
+      color: $text-muted;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}

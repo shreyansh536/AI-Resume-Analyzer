@@ -1,0 +1,182 @@
+// main {
+//     min-height: 100vh;
+//     width: 100%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     background-color: #070e18; // Soft, light gray background for the whole page
+//     font-family: sans-serif;
+
+//     .form-container {
+//         min-width: 350px;
+//         background: #faf6f6; // Crisp white container for the form
+//         padding: 2.5rem;
+//         border-radius: 1rem;
+//         box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05); // Subtle shadow
+//         display: flex;
+//         flex-direction: column;
+//         gap: 1.5rem;
+
+//         h1 {
+//             margin: 0;
+//             font-size: 2rem;
+//             color: #1a1a1a;
+//             text-transform: capitalize;
+//         }
+//     }
+
+//     form {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 1.25rem;
+//     }
+
+//     .input-group {
+//         display: flex;
+//         flex-direction: column;
+//         gap: 0.5rem;
+
+//         label {
+//             font-size: 0.9rem;
+//             font-weight: 600;
+//             color: #4a5568;
+//             text-transform: capitalize;
+//         }
+
+//         input {
+//             border: 1px solid #cbd5e1; // Light border so you can see the inputs
+//             outline: none;
+//             padding-inline: 1rem;
+//             padding-block: 0.75rem;
+//             border-radius: 0.5rem;
+//             font-size: 1rem;
+//             background-color: #f5f7fa;
+//             transition: border-color 0.2s ease;
+
+//             &:focus {
+//                 border-color: #e1034d; // Highlights pink/red when clicked
+//                 background-color: #ffffff;
+//             }
+//         }
+//     }
+
+//     // Styling your login button
+//     .button.primary-button {
+//         background-color: #e1034d; // Your signature brand color
+//         color: white;
+//         border: none;
+//         padding-block: 0.8rem;
+//         border-radius: 0.5rem;
+//         font-size: 1rem;
+//         font-weight: 600;
+//         cursor: pointer;
+//         text-transform: capitalize;
+//         transition: background-color 0.2s ease;
+
+//         &:hover {
+//             background-color: #b8023e; // Darkens slightly on hover
+//         }
+//     }
+// }
+main {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e3ea; // Dark background from your screenshot
+    font-family: sans-serif;
+
+    .form-container {
+        min-width: 350px;
+        background: #f8fafc; // Off-white card background from your screenshot
+        padding: 2.5rem;
+        border-radius: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: #0f172a;
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            label {
+                font-size: 0.9rem;
+                font-weight: 600;
+                color: #475569;
+                text-transform: capitalize;
+            }
+
+            input {
+                border: 1px solid #cbd5e1;
+                outline: none;
+                padding-inline: 1rem;
+                padding-block: 0.75rem;
+                border-radius: 0.5rem;
+                font-size: 1rem;
+                color: #334155;
+                background-color: #f1f5f9;
+                transition: border-color 0.2s ease;
+
+                &:focus {
+                    border-color: #e1034d;
+                }
+            }
+        }
+
+        .button.primary-button {
+            background-color: #e1034d;
+            color: white;
+            border: none;
+            padding-block: 0.8rem;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: capitalize;
+            margin-top: 0.5rem;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: #b8023e;
+            }
+        }
+
+        // --- NEW FIXED CODE STYLES ---
+        p {
+            margin: 0;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #475569; // Ensures text color is visible on the light background
+            text-align: center;
+
+            a {
+                color: #e1034d; // Changes blue link to your brand theme
+                text-decoration: none;
+                font-weight: 600;
+                margin-left: 0.25rem;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: #b8023e;
+                }
+            }
+        }
+        // ------------------------------
+    }
+}
