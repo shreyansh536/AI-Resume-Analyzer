@@ -1,24 +1,93 @@
-# AI-Resume-Analyzer
-AI-Powered Resume Analyzer & ATS Resume Generator | MERN Stack
+ # 🚀 AI-Powered Resume Analyzer & ATS Resume Generator
 
-• Developed a full-stack web application using React.js, Node.js, Express.js, and MongoDB following scalable project architecture and best practices.
+An AI-powered web application that analyzes resumes, identifies skill gaps, and generates ATS-optimized resumes using Google Gemini AI.
 
-• Implemented secure user authentication and authorization using JWT, protected routes, HTTP-only cookies, and token blacklisting for enhanced security.
+## ✨ Features
 
-• Integrated Google Gemini AI API to analyze resumes, generate insights, and provide intelligent career recommendations.
+✅ Secure JWT Authentication & Authorization
 
-• Built an AI-powered resume parsing system capable of extracting skills, experience, and relevant information from uploaded resumes.
+✅ Resume Parsing & Skill Extraction
 
-• Designed and implemented an AI-based Skill Gap Detection feature that compares candidate skills with target job requirements and suggests improvements.
+✅ AI-Powered Skill Gap Detection
 
-• Developed an ATS-optimized resume generation system that creates professional, recruiter-friendly resumes based on AI recommendations.
+✅ ATS-Optimized Resume Generation
 
-• Implemented dynamic PDF generation using Puppeteer, enabling automated conversion of AI-generated resumes into downloadable PDF documents.
+✅ Dynamic PDF Generation using Puppeteer
 
-• Created RESTful APIs for authentication, resume analysis, report generation, and user profile management.
+✅ Protected Routes & Token Blacklisting
 
-• Utilized Context API, custom React hooks, Axios service layers, and protected routing to build a responsive and maintainable frontend architecture.
+✅ File Upload & Resume Management
 
-• Implemented file upload functionality using Multer and structured backend services using controllers, middleware, models, and validation layers.
+---
 
-Tech Stack: React.js, Node.js, Express.js, MongoDB Atlas, JWT Authentication, Gemini AI API, Puppeteer, Axios, Context API, Multer, Zod.. i want more imppressive but in less line because of resume limitatoin 
+## 🛠 Tech Stack
+
+### Frontend
+- React.js
+- Context API
+- Axios
+- React Router
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- JWT Authentication
+
+### AI & Tools
+- Gemini API
+- Puppeteer
+- Multer
+- Zod
+
+---
+
+## 🏗 Architecture
+
+Frontend (React)
+↓
+REST APIs
+↓
+Node.js + Express
+↓
+MongoDB Atlas
+↓
+Gemini AI
+
+---
+
+## 📌 Key Highlights
+
+- Built a full-stack MERN application from scratch.
+- Integrated Gemini AI for resume analysis and recommendations.
+- Implemented secure JWT authentication with token blacklisting.
+- Generated ATS-friendly resumes in PDF format using Puppeteer.
+- Followed scalable project architecture and best practices.
+
+---
+
+## 🚀 Installation
+
+### Clone Repository
+
+git clone https://github.com/shreyansh536/AI-Resume-Analyzer.git
+
+### Backend
+
+cd backend
+npm install
+npm run dev
+
+### Frontend
+
+cd Frontend
+npm install
+npm run dev
+
+---
+
+## 👨‍💻 Developer
+
+Shreyansh Srivastava
+
+BCA Graduate | MERN Stack Developer | AI Enthusiast
